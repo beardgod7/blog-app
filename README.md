@@ -67,7 +67,7 @@ TypeScript interfaces for type checking and ensuring the consistency of data str
 
 ## Authentication and Authorization
 
-The application uses JWT for secure authentication. The `AuthMiddleware` ensures that only authenticated users can access certain endpoints. The `AuthorizationMiddleware` ensures that only authorized users can perform certain actions, such as deleting a post.
+The application uses JWT for secure authentication. The `AuthMiddleware` ensures that only authenticated users can access certain endpoints like getuser update user  create post. The `AuthorizationMiddleware` ensures that only authorized users can perform certain actions, such as deleting a post.
 
 ## Error Handling and Unit Testing
 
@@ -77,23 +77,6 @@ Due to the short time frame for development, comprehensive error handling and un
 
 For a blog application, using GraphQL can offer several advantages over REST API and gRPC:
 
-### Pros of GraphQL:
-
-- **Flexible Queries**: Clients can request exactly the data they need, reducing over-fetching and under-fetching.
-- **Strongly Typed Schema**: Ensures that clients and servers agree on the shape of the data.
-- **Single Endpoint**: All interactions occur through a single endpoint, simplifying client-server communication.
-- **Efficient Data Loading**: Reduces the number of requests needed to fetch related data.
-
-### REST API:
-
-- **Simplicity**: Easier to cache responses, simple and familiar to developers.
-- **Statelessness**: Each request from the client contains all the information needed to process the request.
-
-### gRPC:
-
-- **High Performance**: Uses HTTP/2 for transport and protocol buffers for serialization.
-- **Strongly Typed**: Like GraphQL, gRPC also has a strongly typed schema.
-- **Bidirectional Streaming**: Supports bidirectional streaming, making it suitable for real-time applications.
 
 ## Recommendations
 
