@@ -1,10 +1,11 @@
 import {syncDatabase} from  './middleware/pgconnect'
 import bodyParser from"body-parser";
 import UserRouter from './routes/userroute'
-import express,{Application, Request, Response, NextFunction} from "express";
+import express,{Application} from "express";
 import dotenv from 'dotenv';
 import interactionRoutes from './routes/interactionroute'
 import sortroute from './routes/sort-filterRoute'
+import cookieParser from 'cookie-parser';
 const app:Application= express()
 
 app.use(express.json());

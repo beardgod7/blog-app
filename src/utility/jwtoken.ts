@@ -1,8 +1,6 @@
 import jwt from 'jsonwebtoken';
 import { UserAttributes } from '../models/user'; 
 
-
-
 class TokenService {
   static generateAuthToken(user: UserAttributes): string {
     const token = jwt.sign(

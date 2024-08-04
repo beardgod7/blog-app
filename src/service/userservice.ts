@@ -10,11 +10,13 @@ export interface IUserService {
   updateUserById(id: number, data: UpdateUserDTO): Promise<User | null>;
   deleteUserById(id: number): Promise<boolean>;
   login(data: LoginUserDTO): Promise<{ user: User; token: string } | null>;
+  logout(token: string): Promise<null>;
 }
 
 export interface CreateUserDTO {
   user_name: string;
   imageData?: Buffer;
+  role:string;
   imageContentType?: string;
   password: string;
 }
@@ -47,7 +49,9 @@ class UserService implements IUserService {
   }
 
   async getAllUsers(): Promise<User[]> {
-    return await this.userModel.findAll();
+    return await this.userModel.findAll({
+      attributes: { exclude: ['password'] },
+    });
   }
 
   async getUserById(id: number): Promise<User | null> {
@@ -83,6 +87,12 @@ class UserService implements IUserService {
     }
     return null;
   }
+
+  //async logout(res: Response): Promise<void> {
+   // await LogoutService.logout(res);
+  //}
+ 
+
 }
 
 export default UserService;

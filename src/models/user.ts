@@ -6,6 +6,7 @@ export interface UserAttributes {
   id: number;
   user_name: string;
   imageData?: Buffer;
+  role:string;
   imageContentType?: string;
   password: string;
   createdAt: Date;
@@ -17,6 +18,7 @@ class User extends Model<UserAttributes, UserCreationAttributes> implements User
   public id!: number;
   public user_name!: string;
   public imageData?: Buffer;
+  public role!:string;
   public imageContentType?: string;
   public password!: string;
   public createdAt!: Date;
@@ -44,6 +46,10 @@ User.init({
   password: {
     type: DataTypes.STRING,
     allowNull: false,
+  },
+  role: {
+    type: DataTypes.STRING,
+    defaultValue: "user",
   },
   createdAt: {
     type: DataTypes.DATE,

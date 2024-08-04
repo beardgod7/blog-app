@@ -17,7 +17,9 @@ class UserService {
         return await this.userModel.create(data);
     }
     async getAllUsers() {
-        return await this.userModel.findAll();
+        return await this.userModel.findAll({
+            attributes: { exclude: ['password'] },
+        });
     }
     async getUserById(id) {
         return await this.userModel.findByPk(id);
@@ -47,6 +49,9 @@ class UserService {
             return { user, token };
         }
         return null;
+    }
+    async logout(res) {
+        await LogoutService.logout(res);
     }
 }
 exports.default = UserService;

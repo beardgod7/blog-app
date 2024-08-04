@@ -16,7 +16,7 @@ AuthMiddleware.isAuthenticated = async (req, res, next) => {
         if (!token) {
             return next(new Errorhandler_1.default("Please login to continue", 401));
         }
-        const decoded = jsonwebtoken_1.default.verify(token, 'FtynxXT1NTf2K1Mo4i6AOvtdIPJKIRTY');
+        const decoded = jsonwebtoken_1.default.verify(token, process.env.JWT_SECRET);
         const user = await user_1.default.findByPk(decoded.id);
         if (!user) {
             return next(new Errorhandler_1.default("User not found", 404));

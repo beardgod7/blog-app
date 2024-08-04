@@ -16,8 +16,8 @@ const config = {
     dialect: 'postgres',
     host: 'localhost',
     port: 5432,
-    username: 'postgres',
-    password: 'francis',
+    username: process.env.username,
+    password: process.env.db_password,
     database: 'ibenefit1.0',
     define: {
         underscored: true,

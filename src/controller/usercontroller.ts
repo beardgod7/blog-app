@@ -12,13 +12,11 @@ class UserController {
 
   public createUser = async (req: Request, res: Response): Promise<void> => {
     try {
-      const { user_name, password } = req.body;
+      const { user_name, password,role } = req.body;
       const imageData = req.file?.buffer;
       const imageContentType = req.file?.mimetype;
 
-      console.log('Received data for user creation:', { user_name, password, imageContentType });
-
-      const user = await this.userService.createUser({ user_name, password, imageData, imageContentType });
+      const user = await this.userService.createUser({ user_name, password, imageData,role, imageContentType});
       if (user) {
         const token = TokenService.generateAuthToken(user);
         res.status(201).json({ user, token });

@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 class TokenService {
     static generateAuthToken(user) {
-        const token = jsonwebtoken_1.default.sign({ id: user.id, user_name: user.user_name }, "2FtynxXT1NTf2K1Mo4i6AOvtdIPJKIRTY", {
+        const token = jsonwebtoken_1.default.sign({ id: user.id, user_name: user.user_name }, process.env.JWT_SECRET, {
             expiresIn: '1d',
         });
         return token;

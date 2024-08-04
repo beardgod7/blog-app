@@ -29,6 +29,10 @@ User.init({
         type: sequelize_1.DataTypes.STRING,
         allowNull: false,
     },
+    role: {
+        type: sequelize_1.DataTypes.STRING,
+        defaultValue: "user",
+    },
     createdAt: {
         type: sequelize_1.DataTypes.DATE,
         defaultValue: sequelize_1.DataTypes.NOW,
